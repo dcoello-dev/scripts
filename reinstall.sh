@@ -7,5 +7,5 @@ sudo apt-get update
 sudo apt-get install -y sublime-text
 sudo apt-get install -y mysql-server mongodb-server git curl
 sudo apt-get install -y nodejs-legacy npm
-sudo pip install flask pymongo requests 
+sudo pip install flask pymongo requests netifaces websocket paho-mqtt configparser
 sudo apt install -y compizconfig-settings-manager htop

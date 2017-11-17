@@ -5,7 +5,7 @@ import netifaces as ni
 class NmapExpert:
 
     def __init__(self):
-        pass
+        self.ifaces = ni.interfaces()
 
     def filter_hosts(self, arr):
         toret = []
@@ -24,11 +24,13 @@ class NmapExpert:
             toret.append(hs)
         return toret
 
-    def get_hash_hosts(self, ifaces):
+    def get_hash_hosts(self, ifaces=None):
+        if ifaces is None:
+            ifaces = self.get_nets()
         for iface in ifaces.keys():
             nm = nmap.PortScanner()
             nm.scan(hosts=ifaces[iface],
-                    arguments='-n -sP -PE -PA21,23,80,3389')
+                    arguments='-n -sP -PE -PA21,23,80,3389,22,445,135,139')
             hosts_list = [(x,
                            nm[x]['status']['state'],
                            nm[x]['vendor'],
@@ -38,9 +40,9 @@ class NmapExpert:
 
         return hash_hosts
 
-    def get_nets(self, ifaces):
+    def get_nets(self):
         nets = {}
-        for iface in ifaces:
+        for iface in self.ifaces:
             if iface != "lo":
                 nets[iface] = ".".join(ni.ifaddresses(iface)[2][0][
                                        "addr"].split(".")[0:3])+".0/24"

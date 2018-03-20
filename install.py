@@ -1,3 +1,5 @@
+#!/bin/bash
+
 import sys
 from os import listdir, system
 from os.path import isfile, join
@@ -12,6 +14,8 @@ if __name__ == '__main__':
             or sys.argv[1][len(sys.argv[1])-2:len(sys.argv[1])] != "py":
         usage()
     else:
+        system("pipreqs ../"+sys.argv[1].split(".")[0]+"/")
+        system("pip install requirements.txt")
         command = "pyi-makespec --paths=./app "
         command = command + sys.argv[1]
         system(command)
@@ -21,6 +25,11 @@ if __name__ == '__main__':
         system("sudo cp -r ./dist/" +
                sys.argv[1].split(".")[0] +
                " /usr/lib/")
+        system("sudo cp /usr/lib/" +
+               sys.argv[1].split(".")[0] +
+               "/"+
+               sys.argv[1].split(".")[0] +
+               " /usr/bin")
         system("sudo mkdir /opt/"+sys.argv[1].split(".")[0])
         system("sudo cp -r ./conf/* ./spec/* " +
                "/opt/"+sys.argv[1].split(".")[0])

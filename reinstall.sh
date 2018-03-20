@@ -4,5 +4,5 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 sudo apt-get update
 sudo apt-get install -y sublime-text
 sudo apt-get install -y nodejs-legacy npm
-sudo pip install flask pymongo requests netifaces websocket paho-mqtt configparser websocket-client 
+sudo pip install flask pipreqs pymongo requests netifaces websocket paho-mqtt configparser websocket-client 
 sudo apt install -y compizconfig-settings-manager htop unity-tweak-tool

@@ -182,8 +182,8 @@ bar {
         status_command i3status
         tray_output primary
         colors {
-                background #680042
-                statusline #FFFFFF
+                background #ffff66
+                statusline #66ff33
                 separator  #666666
 
                 focused_workspace  #D00D9C #275C77 #FFFFFF
@@ -199,7 +199,7 @@ exec --no-startup-id feh --bg-fill Documents/qRjEtF5.jpg
 # class                 border  backgr. text    indicator child_border                                                                     
 client.focused_inactive #0d1010 #212121 #d9d9d9 #0d1010 #063340                                                                            
 client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340                                                                            
-client.focused          #d9d9d9 #66ff66 #000000 #d9d9d9 #d9d9d9 
+client.focused          #d9d9d9 #66ff66 #000000 #d9d9d9 #ffff66 
 
 
 bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
